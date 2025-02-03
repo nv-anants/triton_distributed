@@ -52,8 +52,8 @@ jobs:
     - uses: actions/setup-python@v5
     - name: Set up Rust toolchain
       run: |
-        rustup component add rustfmt
-        rustup component add clippy
+        apt update && apt install -y protobuf-compiler
+        rustup component add rustfmt clippy
     - uses: pre-commit/action@v3.0.0
       timeout-minutes: 3
 
