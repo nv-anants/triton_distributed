@@ -82,3 +82,14 @@ repos:
 # NOTE: pyright may be able to find other classes of errors not covered above,
 # but would require some configuring and venv setup to properly eliminate noise
 # and give it visiblity into all the local and third_party packages expected.
+
+# Rust
+- repo: https://github.com/doublify/pre-commit-rust
+    rev: v1.0
+    hooks:
+      - id: cargo-check
+        args: ["--workspace"]
+      - id: fmt
+        args: ["--", "--check"]
+      - id: clippy
+        args: ["--no-deps", "--all-targets", "--", "-D", "warnings"]
